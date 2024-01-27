@@ -10,14 +10,13 @@
     import { writable } from 'svelte/store';
     import Button from "./Button/+page.svelte";
     import { calcDisplay } from "./Math-Equations/+page.js";
-   
     let userInput;
 </script>
 
 <main class="wrapper">
     <div class="calculator">
-        <button class="CE">CE</button>
-        <div class="display" contenteditable bind:textContent="{$calcDisplay}"><span></span></div>
+        <button on:click={() => calcDisplay.set('0')} class="CE">CE</button>
+        <div class="display" data-placeholder="0" contenteditable bind:textContent={$calcDisplay} ></div>
         <Button /> 
         <!-- --inner-shadow="rgba(0, 0, 0, 0.25)" -->
     </div>

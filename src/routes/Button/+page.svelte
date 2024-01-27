@@ -1,14 +1,16 @@
 <script>
-    import { handleNumberClick } from '../Math-Equations/+page.js';
+    import { handleNumberClick, handleActionClick } from '../Math-Equations/+page.js';
+
+    let innerShadow = 'rgba(0, 0, 0, 0.25)';
 </script>
 
     {#each [7, 8, 9, '÷', 4, 5, 6, '*', 1, 2, 3, '-', '.', 0, '=', '+'] as item}
         {#if typeof item === 'number' || item === '.'}
-            <button on:click={(e) => handleNumberClick(e, item)}>{item}</button>
+            <button on:click={() => handleNumberClick(item)}>{item}</button>
         {:else if item === '='}
             <button class="equal-btn">{item}</button>
         {:else}
-            <button class="dark-btn">{item}</button>
+            <button on:click={() => handleActionClick(item)} class="dark-btn">{item}</button>
         {/if}
     {/each}
 <style>
