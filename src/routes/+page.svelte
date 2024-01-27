@@ -15,7 +15,7 @@
     <div class="calculator">
         <button class="CE">CE</button>
         <div class="display"><span>128673</span></div>
-        <Button/>
+        <Button /> //on click --inner-shadow to rgba(0, 0, 0, 0.25)
     </div>
 </main>
 <style>
@@ -31,15 +31,17 @@
         align-items: center;
     }
     .calculator {
-        width: 641px;
-        padding: 57px;
+        width: calc(641px * 0.7);
+        padding: calc(57px * 0.7);
         border-radius: 50px;
         background: #AAB1BB;
-        height: 779px;
+        height: calc(779px * 0.7);
         margin: auto auto;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 45px;
+        grid-template-rows: 0.85fr repeat(4, 1fr);
+        gap: 20px;
+        box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.5);
     }
     .display {
         grid-row: 1;
@@ -50,7 +52,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        max-height: 100px;
+        filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.25));
     }
     .display span{ 
         font-size: 75px;
@@ -58,7 +60,6 @@
         font-family: 'Kelly Slab', 'sans-serif';
     }
     .CE {
-        max-height: 100px;
         grid-row: 1;
         grid-column: 1 / 2;
         border-top-left-radius: 20px;

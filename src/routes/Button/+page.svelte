@@ -16,6 +16,8 @@
         color: var(--font-color, rgba(0, 0, 0, 0.55));
         border: none;
         font-family: 'Syncopate', 'sans-serif';
+        box-shadow: 2px 2px 4px 0px var(--inner-shadow, rgba(255, 255, 255, 0.25)) inset;
+        filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.25));
     }
     .dark-btn {
         --color: #37424F;
