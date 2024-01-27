@@ -2,27 +2,30 @@
     <title>Calculator App Svelte</title>
     <meta name="description" content="Svelte demo app" />
     <link rel="icon" href="/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/calculator" rel="stylesheet">
 </svelte:head>
 
 <script>
-    import Button from "../routes/Button/+page.svelte";
+    import { writable } from 'svelte/store';
+    import Button from "./Button/+page.svelte";
+    import { calcDisplay } from "./Math-Equations/+page.js";
+   
+    let userInput;
 </script>
 
 <main class="wrapper">
     <div class="calculator">
         <button class="CE">CE</button>
-        <div class="display"><span>128673</span></div>
-        <Button /> //on click --inner-shadow to rgba(0, 0, 0, 0.25)
+        <div class="display" contenteditable bind:textContent="{$calcDisplay}"><span></span></div>
+        <Button /> 
+        <!-- --inner-shadow="rgba(0, 0, 0, 0.25)" -->
     </div>
 </main>
 <style>
     :global(body) {
         background: #f2f2f2;
         margin: 0;
-        font-family: --font;
     }
     .wrapper {
         min-height: 100vh;
@@ -53,11 +56,9 @@
         align-items: center;
         justify-content: flex-end;
         filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.25));
-    }
-    .display span{ 
+        font-family: 'Calculator', sans-serif;
         font-size: 75px;
         padding-right: 21px;
-        font-family: 'Kelly Slab', 'sans-serif';
     }
     .CE {
         grid-row: 1;

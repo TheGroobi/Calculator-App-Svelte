@@ -1,7 +1,10 @@
+<script>
+    import { handleNumberClick } from '../Math-Equations/+page.js';
+</script>
 
-    {#each [7, 8, 9, '÷', 4, 5, 6, '*', 1, 2, 3, '-', ',', 0, '=', '+'] as item}
-        {#if typeof item === 'number' || item === ','}
-            <button>{item}</button>
+    {#each [7, 8, 9, '÷', 4, 5, 6, '*', 1, 2, 3, '-', '.', 0, '=', '+'] as item}
+        {#if typeof item === 'number' || item === '.'}
+            <button on:click={(e) => handleNumberClick(e, item)}>{item}</button>
         {:else if item === '='}
             <button class="equal-btn">{item}</button>
         {:else}
