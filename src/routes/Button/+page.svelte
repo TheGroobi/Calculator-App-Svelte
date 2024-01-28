@@ -8,9 +8,9 @@
         {#if typeof item === 'number' || item === '.'}
             <button on:click={() => handleNumberClick(item)}>{item}</button>
         {:else if item === '='}
-            <button class="equal-btn">{item}</button>
+            <button on:click={(e) => handleActionClick(item)} class="equal-btn">{item}</button>
         {:else}
-            <button on:click={() => handleActionClick(item)} class="dark-btn">{item}</button>
+            <button on:click={(e) => handleActionClick(item)} class="dark-btn">{item}</button>
         {/if}
     {/each}
 <style>
